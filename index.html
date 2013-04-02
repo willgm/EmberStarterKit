@@ -22,16 +22,13 @@
         <h2>POC EmberJS</h2>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="endereco">
-        <h2>Cadastro de Endereços</h2>
-    </script>
-
     <script type="text/x-handlebars" data-template-name="about">
         <h2>Sobre</h2>
-        <p>Essa é uma prova de conceito realizada pela Lambda3 para escolha da tecnologia a ser utilizada em um projeto SPA de um cliente.</p>
+        <p>Essa é uma prova de conceito para escolha da tecnologia a ser utilizada em um projeto SPA de um cliente.</p>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="enderecoform">
+    <script type="text/x-handlebars" data-template-name="endereco">
+        <h2>Cadastro de Endereços</h2>
         
         Estado:
         <select name="id_estados" id="id_estados">
@@ -88,6 +85,30 @@
         
         <br /><br />
         <input type="button" value="Salvar">
+        
+        <br /><br />
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Estado</th>
+                    <th>Logradouro</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{#each item in model}}
+                <tr>
+                    <td>{{item.estado}}</td>
+                    <td>{{item.logradouro}}</td>
+                    <td class="acao">
+                        <a class="editar" href="#endereco/edit">Edit</a>
+                        &nbsp;
+                        <a class="excluir" href="#endereco/delet">Delet</a>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
         
     </script>
 
