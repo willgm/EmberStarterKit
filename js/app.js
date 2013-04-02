@@ -1,11 +1,9 @@
 App = Ember.Application.create();
 
-App.Base = [
-        {
-            estado: 'SP',
-            logradouro: 'teste'
-        }
-    ];
+App.Endereco = Ember.Object.extend({
+	estado: null,
+	logradouro: null
+});;
 
 App.Router.map(function() {
     this.route("home", { path: "/" });
@@ -15,6 +13,11 @@ App.Router.map(function() {
 
 App.EnderecoRoute = Ember.Route.extend({
   model: function() {
-    return App.Base;
+    return [
+		App.Endereco.create({
+			estado: 'SP',
+			logradouro: 'teste'
+		})
+	];
   }
 });
